@@ -4,7 +4,7 @@ from datetime import datetime
 from longform.tts_long import generate_long_narration
 from longform.script_generator_long import generate_us_long_script
 from longform.subtitle_generator_long import generate_long_subtitles
-from video.video_generator_long import generate_long_bg_video
+from video.video_generator_long import generate_bg_video
 from video.merger_long import merge_longform_video
 from uploader import upload_video
 from shorts.shorts_pipeline import run_shorts_from_script
