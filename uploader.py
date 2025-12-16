@@ -8,7 +8,9 @@ import os
 SCOPES = ["https://www.googleapis.com/auth/youtube.upload"]
 CLIENT_SECRET_FILE = "client_secret.json"
 TOKEN_FILE = "token.json"
-IS_CI = os.environ.get("CI") == "true"
+IS_CI = os.environ.get("CI", "").lower() == "true"
+print("DEBUG CI =", os.environ.get("CI"), "IS_CI =", IS_CI)
+
 
 
 def get_youtube_client():
