@@ -1,7 +1,7 @@
 from openai import OpenAI
-from config import OPENAI_API_KEY
+import os
 
-client = OpenAI(api_key=OPENAI_API_KEY)
+client = OpenAI(api_key=os.environ.get("OPENAI_API_KEY"))
 
 def generate_global_shorts_script():
     prompt = """

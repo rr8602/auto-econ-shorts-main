@@ -36,7 +36,7 @@ def run_kr_longform():
     # -----------------------------
     # 5️⃣ 16:9 배경 영상 생성
     # -----------------------------
-    bg_video_path = generate_long_bg_video(audio_path)
+    bg_video_path = generate_bg_video(audio_path)
 
     # -----------------------------
     # 6️⃣ 영상 + 오디오 + 자막 합성

@@ -1,11 +1,10 @@
 # shorts/shorts_pipeline.py
-from datetime import datetime, timedelta
+from datetime import datetime
 
 from shorts.script_generator_shorts import generate_global_shorts_script
-from shorts.shorts_summary_generator import generate_shorts_summary
 
 from audio.audio_generator import generate_narration
-from subtitle.subtitle_generator import generate_subtitles
+from shorts.subtitle_generator_shorts import generate_subtitles
 
 from video.video_generator import generate_bg_video
 from video.merger import merge_audio_video_with_subtitles

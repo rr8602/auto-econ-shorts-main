@@ -1,7 +1,6 @@
 # video/merger_long.py
 import subprocess
 
-
 def merge_longform_video(
     bg_video: str,
     audio_path: str,
