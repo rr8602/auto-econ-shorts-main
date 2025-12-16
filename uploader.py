@@ -3,6 +3,7 @@ from googleapiclient.http import MediaFileUpload
 from google_auth_oauthlib.flow import InstalledAppFlow
 from google.oauth2.credentials import Credentials
 from common.kakao_notifier import send_kakao_message
+from common.env_utils import is_github_actions
 import os
 
 SCOPES = ["https://www.googleapis.com/auth/youtube.upload"]
