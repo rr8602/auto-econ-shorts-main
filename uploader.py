@@ -3,12 +3,12 @@ from googleapiclient.http import MediaFileUpload
 from google_auth_oauthlib.flow import InstalledAppFlow
 from google.oauth2.credentials import Credentials
 from common.kakao_notifier import send_kakao_message
-from common.env_utils import is_github_actions
 import os
 
 SCOPES = ["https://www.googleapis.com/auth/youtube.upload"]
 CLIENT_SECRET_FILE = "client_secret.json"
 TOKEN_FILE = "token.json"
+IS_CI = os.environ.get("CI") == "true"
 
 
 def get_youtube_client():
@@ -49,6 +49,11 @@ def upload_video(
     video_type: str = "short",
     long_video_id: str | None = None,
 ):
+    if IS_CI:
+        print("⚠️ CI 환경에서는 업로드를 건너뜁니다.")
+        return None
+
+
     youtube = get_youtube_client()
 
     if video_type == "short":
