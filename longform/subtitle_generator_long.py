@@ -12,7 +12,7 @@ def generate_long_subtitles(
 ) -> str:
     os.makedirs(os.path.dirname(output_path), exist_ok=True)
 
-    print("📝 롱폼 Whisper 자막 생성 중…")
+    print("롱폼 Whisper 자막 생성 중…")
 
     with open(audio_path, "rb") as f:
         result = client.audio.transcriptions.create(
