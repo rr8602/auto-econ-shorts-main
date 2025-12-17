@@ -36,22 +36,26 @@ def run_us_longform():
     # -----------------------------
     # 5️⃣ 16:9 배경 영상 생성 (오디오 길이 기반)
     # -----------------------------
+    print("DEBUG >>> before generate_bg_video", flush=True)
     bg_video_path = generate_bg_video(audio_path)
+    print("DEBUG >>> after generate_bg_video", flush=True)
 
     # -----------------------------
     # 6️⃣ 영상 + 오디오 + 자막 합성
     # -----------------------------
-    print("DEBUG >>> before merge_longform_video")
+    print("DEBUG >>> before merge_longform_video", flush=True)
     final_video_path = merge_longform_video(
         bg_video=bg_video_path,
         audio_path=audio_path,
         subtitle_path=subtitle_path
     )
-    print("DEBUG >>> after merge_longform_video:", final_video_path)
+    print("DEBUG >>> after merge_longform_video:", final_video_path, flush=True)
 
     # -----------------------------
     # 7️⃣ 유튜브 롱폼 업로드
     # -----------------------------
+    print("DEBUG >>> before upload_video", flush=True)
+    
     video_id = upload_video(
         video_path=final_video_path,
         title=f"{target_date} 미장 시황 - 오늘 미국 증시 핵심 정리",
@@ -63,7 +67,8 @@ def run_us_longform():
         video_type="long"
     )
 
-    print("미장 롱폼 업로드 완료")
+    print("DEBUG >>> after upload_video", flush=True)
+
 
     # -----------------------------
     # 8️⃣ 롱폼 요약 숏폼 생성 + 업로드
