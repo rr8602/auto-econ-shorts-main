@@ -12,7 +12,7 @@ def generate_long_subtitles(
 ) -> str:
     os.makedirs(os.path.dirname(output_path), exist_ok=True)
 
-    print("롱폼 Whisper 자막 생성 중…")
+    print("[subtitles] generate longform subtitles", flush=True)
 
     with open(audio_path, "rb") as f:
         result = client.audio.transcriptions.create(
@@ -24,5 +24,5 @@ def generate_long_subtitles(
     with open(output_path, "w", encoding="utf-8") as out:
         out.write(result)
 
-    print("롱폼 자막 생성 완료:", output_path)
+    print("[subtitles] generate longform subtitles complete:", output_path, flush=True)
     return output_path
