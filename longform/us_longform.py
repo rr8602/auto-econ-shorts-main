@@ -41,11 +41,13 @@ def run_us_longform():
     # -----------------------------
     # 6️⃣ 영상 + 오디오 + 자막 합성
     # -----------------------------
+    print("DEBUG >>> before merge_longform_video")
     final_video_path = merge_longform_video(
         bg_video=bg_video_path,
         audio_path=audio_path,
         subtitle_path=subtitle_path
     )
+    print("DEBUG >>> after merge_longform_video:", final_video_path)
 
     # -----------------------------
     # 7️⃣ 유튜브 롱폼 업로드
