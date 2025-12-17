@@ -53,6 +53,8 @@ def upload_video(
     video_type: str = "short",
     long_video_id: str | None = None,
 ):
+    print(f"DEBUG >>> upload_video called, IS_CI={IS_CI}")
+
     if IS_CI:
         print("CI 환경에서는 업로드를 건너뜁니다.")
         return None
