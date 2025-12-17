@@ -9,6 +9,31 @@ from video.merger_long import merge_longform_video
 from uploader import upload_video
 from shorts.shorts_pipeline import run_shorts_from_script
 
+def build_longform_bg_prompt(script: str) -> str:
+    """
+    롱폼(16:9) 배경 영상용 프롬프트
+    - 사람/텍스트 금지
+    - 경제/시장 분위기
+    """
+    return f"""
+Cinematic background video for a long-form US stock market analysis video.
+
+Requirements:
+- No humans
+- No text, no subtitles, no logos
+- Abstract financial visuals
+- Animated candlestick charts and market graphs
+- Global stock market atmosphere
+- Dark theme, professional tone
+- Slow, calm camera movement
+- 16:9 horizontal format
+- Suitable for YouTube long-form finance content
+
+Context (DO NOT show this as text):
+\"\"\"{script}\"\"\"
+"""
+
+
 
 def run_us_longform():
     print("미장 롱폼 파이프라인 시작")
@@ -37,7 +62,9 @@ def run_us_longform():
     # 5️⃣ 16:9 배경 영상 생성 (오디오 길이 기반)
     # -----------------------------
     print("DEBUG >>> before generate_bg_video", flush=True)
-    bg_video_path = generate_bg_video(audio_path)
+    bg_prompt = build_longform_bg_prompt(script)
+
+    bg_video_path = generate_bg_video(bg_prompt)
     print("DEBUG >>> after generate_bg_video", flush=True)
 
     # -----------------------------
