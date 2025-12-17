@@ -1,9 +1,9 @@
 name: Auto Econ Shorts Bot
 
-on:
-  schedule:
-    - cron: "0 * * * *"   # 매 시간 (UTC)
-  workflow_dispatch:
+# on:
+#   schedule:
+#     - cron: "0 * * * *"   # 매 시간 (UTC)
+#   workflow_dispatch:
 
 jobs:
   run-bot:
