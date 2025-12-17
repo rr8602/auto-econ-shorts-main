@@ -56,7 +56,7 @@ def generate_bg_video(script: str) -> str:
         model="sora-2",
         prompt=prompt,
         size="720x1280",     # Shorts 9:16
-        seconds=12           # 숏폼 반복용 기본 단위
+        seconds=str(12)           # 숏폼 반복용 기본 단위
     )
 
     print("⌛ 영상 생성 요청 ID:", job.id)
