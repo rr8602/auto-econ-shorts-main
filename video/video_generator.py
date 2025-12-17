@@ -49,7 +49,7 @@ Context (do NOT display text from this):
 # -----------------------------
 def generate_bg_video(script: str) -> str:
     if IS_CI:
-        print("⚠️ CI 환경: Sora 배경 영상 생성 스킵")
+        print("CI 환경: Sora 배경 영상 생성 스킵")
         return "output/dummy_bg.mp4"
 
     """
@@ -66,7 +66,7 @@ def generate_bg_video(script: str) -> str:
         seconds=str(12)           # 숏폼 반복용 기본 단위
     )
 
-    print("⌛ 영상 생성 요청 ID:", job.id)
+    print("영상 생성 요청 ID:", job.id)
 
     # 생성 완료 대기
     while job.status in ("queued", "in_progress"):
