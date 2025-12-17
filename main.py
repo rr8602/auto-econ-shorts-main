@@ -5,7 +5,7 @@ from shorts.shorts_pipeline import run_shorts_pipeline
 
 def run_pipeline():
     hour = get_kst_hour()
-    print(f"⏰ KST {hour}시")
+    print(f"[KST] {hour}시")
 
     # if hour == 8:
     #     run_us_longform()
