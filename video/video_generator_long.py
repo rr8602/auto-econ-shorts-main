@@ -50,8 +50,8 @@ def generate_bg_video(prompt: str, sora_seconds: str = "12") -> str:
     job = client.videos.create(
         model="sora-2",
         prompt=prompt,
-        size="1280x720",     # ✅ 롱폼은 16:9
-        seconds=sora_seconds # ✅ 문자열
+        size="1280x720",     # 롱폼은 16:9
+        seconds=sora_seconds # 문자열
     )
 
     print(f"Sora job id: {job.id}", flush=True)
@@ -74,14 +74,14 @@ def generate_bg_video(prompt: str, sora_seconds: str = "12") -> str:
         if status in SUCCESS_STATES:
             break
         if status in FAIL_STATES:
-            print("⚠️ Sora 실패 상태 → 더미 영상으로 대체", flush=True)
+            print("Sora 실패 상태 → 더미 영상으로 대체", flush=True)
             return _make_dummy_169_video(seconds=10)
 
         time.sleep(INTERVAL_SEC)
         waited += INTERVAL_SEC
 
         if waited >= MAX_WAIT_SEC:
-            print("⚠️ Sora 생성 지연(타임아웃) → 더미 영상으로 대체", flush=True)
+            print("Sora 생성 지연(타임아웃) → 더미 영상으로 대체", flush=True)
             return _make_dummy_169_video(seconds=10)
 
     # 3) 성공 시 다운로드
@@ -89,8 +89,8 @@ def generate_bg_video(prompt: str, sora_seconds: str = "12") -> str:
         content = client.videos.download_content(job.id, variant="video")
         os.makedirs(os.path.dirname(OUTPUT_BG_VIDEO), exist_ok=True)
         content.write_to_file(OUTPUT_BG_VIDEO)
-        print("✅ Sora 배경 영상 생성 완료:", OUTPUT_BG_VIDEO, flush=True)
+        print("Sora 배경 영상 생성 완료:", OUTPUT_BG_VIDEO, flush=True)
         return OUTPUT_BG_VIDEO
     except Exception as e:
-        print(f"⚠️ 다운로드 실패({e}) → 더미 영상으로 대체", flush=True)
+        print(f"다운로드 실패({e}) → 더미 영상으로 대체", flush=True)
         return _make_dummy_169_video(seconds=10)
