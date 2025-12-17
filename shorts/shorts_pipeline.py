@@ -29,9 +29,7 @@ def run_shorts_pipeline():
 
     # 배경영상 (9:16, 60초 내)
     bg_video_path = generate_bg_video(
-        script=script,
-        aspect_ratio="9:16",
-        seconds=60
+        script=script
     )
 
     # 합성 (날짜 오버레이 + 마지막 3초 고정멘트 포함하도록 merger가 구성돼 있어야 함)
@@ -74,9 +72,7 @@ def run_shorts_from_script(
 
     # 배경영상
     bg_video_path = generate_bg_video(
-        script=script,
-        aspect_ratio="9:16",
-        seconds=60
+        script=script
     )
 
     # 합성
