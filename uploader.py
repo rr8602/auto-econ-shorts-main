@@ -9,7 +9,8 @@ SCOPES = ["https://www.googleapis.com/auth/youtube.upload"]
 CLIENT_SECRET_FILE = "client_secret.json"
 TOKEN_FILE = "token.json"
 IS_CI = os.environ.get("CI", "").lower() == "true"
-print("DEBUG CI =", os.environ.get("CI"), "IS_CI =", IS_CI)
+print("DEBUG >>> CI =", os.environ.get("CI"))
+print("DEBUG >>> IS_CI =", IS_CI)
 
 
 
