@@ -25,7 +25,7 @@ def generate_bg_video(prompt: str):
         model="sora-2",
         prompt=prompt,
         size="720x1280",
-        seconds=12
+        seconds=str(12)
     )
 
     # 안전한 폴링 (타임아웃 포함)
