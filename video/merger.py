@@ -9,7 +9,7 @@ IS_CI = CI_VALUE in ("1", "true", "yes")
 def merge_audio_video_with_subtitles(subtitle_path, market_type):
     if IS_CI:
         print("⚠️ CI 환경: 숏폼 영상 합성 스킵")
-        return output_path  # 더미 반환
+        return  # 더미 반환
 
     if market_type == "US":
         date_text = (datetime.now() - timedelta(days=1)).strftime("%Y.%m.%d") + " 미국장"
