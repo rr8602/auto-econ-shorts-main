@@ -19,7 +19,7 @@ def generate_bg_video(prompt: str):
         )
         return OUTPUT_BG_VIDEO
 
-    print("🎥 Sora 배경 영상 생성 시작", flush=True)
+    print("Sora 배경 영상 생성 시작", flush=True)
 
     job = client.videos.create(
         model="sora-2",
@@ -31,7 +31,7 @@ def generate_bg_video(prompt: str):
     # 안전한 폴링 (타임아웃 포함)
     for _ in range(60):  # 최대 60초
         job = client.videos.retrieve(job.id)
-        print(f"⏳ Sora status: {job.status}", flush=True)
+        print(f"Sora status: {job.status}", flush=True)
 
         if job.status == "succeeded":
             break

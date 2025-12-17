@@ -3,6 +3,9 @@ import time
 from openai import OpenAI
 from config import OUTPUT_BG_VIDEO
 
+CI_VALUE = os.environ.get("CI", "").lower()
+IS_CI = CI_VALUE in ("1", "true", "yes")
+
 # -----------------------------
 # OpenAI Client
 # -----------------------------
@@ -45,6 +48,10 @@ Context (do NOT display text from this):
 # 배경 영상 생성
 # -----------------------------
 def generate_bg_video(script: str) -> str:
+    if IS_CI:
+        print("⚠️ CI 환경: Sora 배경 영상 생성 스킵")
+        return "output/dummy_bg.mp4"
+
     """
     OpenAI Sora API로 숏폼 배경 영상 생성
     """
