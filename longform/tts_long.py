@@ -5,7 +5,7 @@ from openai import OpenAI
 
 OPENAI_API_KEY = os.environ.get("OPENAI_API_KEY")
 if not OPENAI_API_KEY:
-    raise RuntimeError("❌ OPENAI_API_KEY 환경변수가 없습니다.")
+    raise RuntimeError("OPENAI_API_KEY 환경변수가 없습니다.")
 
 client = OpenAI(api_key=OPENAI_API_KEY)
 
@@ -37,7 +37,7 @@ def generate_long_narration(script: str):
     chunks = split_script(script)
     part_paths = []
 
-    print("🎤 롱폼 TTS 생성(분할)...")
+    print("롱폼 TTS 생성(분할)...")
     for i, chunk in enumerate(chunks, start=1):
         print(f"  - 파트 {i}/{len(chunks)}")
         resp = client.audio.speech.create(
@@ -61,7 +61,7 @@ def generate_long_narration(script: str):
         ["ffmpeg", "-y", "-f", "concat", "-safe", "0", "-i", concat_txt, "-c", "copy", audio_out],
         check=True
     )
-    print("✅ 롱폼 오디오 생성 완료:", audio_out)
+    print("롱폼 오디오 생성 완료:", audio_out)
 
     # 임시 16:9 더미 영상 (검정 화면) - 최소한 업로드 가능한 형태
     video_out = "output/long_video.mp4"

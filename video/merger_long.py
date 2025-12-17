@@ -7,7 +7,7 @@ def merge_longform_video(
     subtitle_path: str,
     output_path: str = "output/long_final.mp4"
 ):
-    print("🎬 롱폼 영상 + 오디오 + 자막 합성 중…")
+    print("롱폼 영상 + 오디오 + 자막 합성 중…")
 
     cmd = [
         "ffmpeg", "-y",
@@ -22,5 +22,5 @@ def merge_longform_video(
     ]
 
     subprocess.run(cmd, check=True)
-    print("✅ 롱폼 최종 영상 생성:", output_path)
+    print("롱폼 최종 영상 생성:", output_path)
     return output_path

@@ -59,5 +59,5 @@ def generate_thumbnail(
     draw.text((x, y), text, font=font, fill=(255, 255, 255))
 
     img.save(output_path, quality=95)
-    print("🖼 썸네일 생성 완료:", output_path)
+    print("썸네일 생성 완료:", output_path)
     return output_path

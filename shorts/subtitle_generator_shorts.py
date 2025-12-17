@@ -10,7 +10,7 @@ def generate_subtitles(audio_path: str, output_path: str = "output/subtitles.srt
     """
     os.makedirs(os.path.dirname(output_path), exist_ok=True)
 
-    print("📝 Whisper로 숏폼 자막 생성 중…", audio_path)
+    print("Whisper로 숏폼 자막 생성 중…", audio_path)
 
     with open(audio_path, "rb") as f:
         result = client.audio.transcriptions.create(
@@ -23,5 +23,5 @@ def generate_subtitles(audio_path: str, output_path: str = "output/subtitles.srt
     with open(output_path, "w", encoding="utf-8") as out:
         out.write(result)
 
-    print("✅ 숏폼 자막 생성 완료:", output_path)
+    print("숏폼 자막 생성 완료:", output_path)
     return output_path

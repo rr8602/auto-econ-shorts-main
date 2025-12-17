@@ -37,7 +37,7 @@ def build_shorts_description(long_video_id: str | None):
         return "오늘 시황 핵심 요약입니다."
 
     return (
-        "📌 본편 전체 영상 바로보기\n"
+        "본편 전체 영상 바로보기\n"
         f"https://www.youtube.com/watch?v={long_video_id}\n\n"
         "자세한 분석은 본편에서 확인하세요."
     )
@@ -53,7 +53,7 @@ def upload_video(
     long_video_id: str | None = None,
 ):
     if IS_CI:
-        print("⚠️ CI 환경에서는 업로드를 건너뜁니다.")
+        print("CI 환경에서는 업로드를 건너뜁니다.")
         return None
 
 

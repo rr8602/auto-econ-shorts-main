@@ -16,7 +16,7 @@ def run_shorts_pipeline():
     """
     01/09/17시: 롱폼과 무관한 '글로벌 경제 이슈' 숏츠 업로드
     """
-    print("🟢 SHORTS PIPELINE (글로벌 이슈) 시작")
+    print("SHORTS PIPELINE (글로벌 이슈) 시작")
 
     # 글로벌 이슈 숏츠 스크립트 생성
     script = generate_global_shorts_script()
@@ -50,7 +50,7 @@ def run_shorts_pipeline():
         video_type="short"
     )
 
-    print("🎉 SHORTS PIPELINE (글로벌 이슈) 완료")
+    print("SHORTS PIPELINE (글로벌 이슈) 완료")
 
 
 def run_shorts_from_script(
@@ -64,7 +64,7 @@ def run_shorts_from_script(
     08시/15시: 롱폼 대본을 요약한 숏츠를 생성/업로드
     - 숏폼 설명란에 롱폼 링크 삽입(long_video_id)
     """
-    print(f"🟡 SHORTS FROM SCRIPT 시작 ({market_type})")
+    print(f"SHORTS FROM SCRIPT 시작 ({market_type})")
 
     # TTS
     audio_path = generate_narration(script)
@@ -95,4 +95,4 @@ def run_shorts_from_script(
         long_video_id=long_video_id
     )
 
-    print(f"✅ SHORTS FROM SCRIPT 완료 ({market_type})")
+    print(f"SHORTS FROM SCRIPT 완료 ({market_type})")

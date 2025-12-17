@@ -4,7 +4,7 @@ from openai import OpenAI
 
 OPENAI_API_KEY = os.environ.get("OPENAI_API_KEY")
 if not OPENAI_API_KEY:
-    raise RuntimeError("❌ OPENAI_API_KEY 환경변수가 없습니다.")
+    raise RuntimeError("OPENAI_API_KEY 환경변수가 없습니다.")
 
 client = OpenAI(api_key=OPENAI_API_KEY)
 MODEL_NAME = os.environ.get("OPENAI_TEXT_MODEL", "gpt-4o-mini")

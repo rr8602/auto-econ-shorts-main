@@ -24,5 +24,5 @@ def generate_long_subtitles(
     with open(output_path, "w", encoding="utf-8") as out:
         out.write(result)
 
-    print("✅ 롱폼 자막 생성 완료:", output_path)
+    print("롱폼 자막 생성 완료:", output_path)
     return output_path

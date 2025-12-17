@@ -12,26 +12,26 @@ def send_kakao_message(title: str, url: str, status: str = "success"):
 
     token_json = os.environ.get("KAKAO_TOKEN_JSON")
     if not token_json:
-        print("❌ KAKAO_TOKEN_JSON 환경변수 없음")
+        print("KAKAO_TOKEN_JSON 환경변수 없음")
         return
 
     token = json.loads(token_json)
     access_token = token.get("access_token")
 
     if not access_token:
-        print("❌ access_token 없음")
+        print("access_token 없음")
         return
 
     if status == "success":
         text = (
-            f"✅ 업로드 완료\n\n"
-            f"📌 {title}\n"
-            f"🔗 {url}"
+            f"업로드 완료\n\n"
+            f"{title}\n"
+            f"{url}"
         )
     else:
         text = (
-            f"❌ 업로드 실패\n\n"
-            f"📌 {title}\n"
+            f"업로드 실패\n\n"
+            f"{title}\n"
             f"로그 확인 필요"
         )
 
@@ -56,6 +56,6 @@ def send_kakao_message(title: str, url: str, status: str = "success"):
     )
 
     if res.status_code != 200:
-        print("❌ 카카오 메시지 실패:", res.text)
+        print("카카오 메시지 실패:", res.text)
     else:
-        print("🔔 카카오 메시지 전송 완료")
+        print("카카오 메시지 전송 완료")

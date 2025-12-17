@@ -8,7 +8,7 @@ from config import OUTPUT_BG_VIDEO
 # -----------------------------
 OPENAI_API_KEY = os.environ.get("OPENAI_API_KEY")
 if not OPENAI_API_KEY:
-    raise RuntimeError("❌ OPENAI_API_KEY 환경변수가 설정되지 않았습니다.")
+    raise RuntimeError("OPENAI_API_KEY 환경변수가 설정되지 않았습니다.")
 client = OpenAI(api_key=OPENAI_API_KEY)
 
 os.makedirs("output", exist_ok=True)
@@ -48,15 +48,15 @@ def generate_bg_video(script: str) -> str:
     """
     OpenAI Sora API로 숏폼 배경 영상 생성
     """
-    print("🎬 숏폼 배경 영상 생성 시작")
+    print("숏폼 배경 영상 생성 시작")
 
     prompt = build_prompt(script)
 
     job = client.videos.create(
         model="sora-2",
         prompt=prompt,
-        size="720x1280",     # ✅ Shorts 9:16
-        seconds=12           # ✅ 숏폼 반복용 기본 단위
+        size="720x1280",     # Shorts 9:16
+        seconds=12           # 숏폼 반복용 기본 단위
     )
 
     print("⌛ 영상 생성 요청 ID:", job.id)
@@ -68,9 +68,9 @@ def generate_bg_video(script: str) -> str:
         job = client.videos.retrieve(job.id)
 
     if job.status != "completed":
-        raise RuntimeError("❌ 배경 영상 생성 실패")
+        raise RuntimeError("배경 영상 생성 실패")
 
-    print("📥 영상 다운로드 중…")
+    print("영상 다운로드 중…")
 
     video_content = client.videos.download_content(
         job.id,
@@ -78,5 +78,5 @@ def generate_bg_video(script: str) -> str:
     )
     video_content.write_to_file(OUTPUT_BG_VIDEO)
 
-    print("✅ 배경 영상 저장 완료:", OUTPUT_BG_VIDEO)
+    print("배경 영상 저장 완료:", OUTPUT_BG_VIDEO)
     return OUTPUT_BG_VIDEO
