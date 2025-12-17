@@ -27,7 +27,7 @@ jobs:
 
       - name: Run bot
         env:
-          CI : true
+          CI: "true"
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
           KAKAO_TOKEN_JSON: ${{ secrets.KAKAO_TOKEN_JSON }}
         run: |
